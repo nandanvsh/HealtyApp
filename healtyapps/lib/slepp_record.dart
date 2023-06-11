@@ -121,7 +121,6 @@ class _SleepCalculatorState extends State<SleepCalculator> {
               ),
             ),
           ),
-          bottomNavigationBar: BottomNavbar(),
         ),
       ),
     );

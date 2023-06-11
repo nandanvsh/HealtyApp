@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healtyapps/home.dart';
+import 'package:healtyapps/navbar.dart';
 import 'package:healtyapps/register.dart';
 
 class Login extends StatefulWidget {
@@ -23,7 +24,6 @@ class _LoginState extends State<Login> {
 
   TextEditingController Email = TextEditingController();
   TextEditingController Password = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -130,9 +130,7 @@ class _LoginState extends State<Login> {
                                     } else {
                                       Navigator.pushReplacement(context,
                                           MaterialPageRoute(builder: (context) {
-                                        return Beranda(
-                                          username: widget.username,
-                                        );
+                                        return BottomNavbar();
                                       }));
                                     }
                                   },

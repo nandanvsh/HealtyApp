@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healtyapps/login.dart';
+import 'content_start.dart' as globals;
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -12,6 +13,7 @@ class _RegisterState extends State<Register> {
   String email = "";
   String username = "";
   String password = "";
+
   TextEditingController Email = TextEditingController();
   TextEditingController Username = TextEditingController();
   TextEditingController Password = TextEditingController();
@@ -115,6 +117,8 @@ class _RegisterState extends State<Register> {
                                     username = Username.text;
                                     password = Password.text;
                                     email = Email.text;
+
+                                    globals.username = username;
 
                                     if (username == "" ||
                                         password == "" ||

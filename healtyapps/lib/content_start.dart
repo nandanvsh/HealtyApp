@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+String username = '';
+
 class StartContent {
   String image = "";
   String title = "";

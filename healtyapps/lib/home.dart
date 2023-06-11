@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:healtyapps/calculator.dart';
 import 'package:healtyapps/slepp_record.dart';
 import 'package:healtyapps/water_record.dart';
-
-import 'navbar.dart';
-// import 'package:healtyapps/navbar.dart';
+import 'package:healtyapps/register.dart';
+import 'package:healtyapps/navbar.dart';
+import 'package:healtyapps/running.dart';
+import 'package:healtyapps/cuaca.dart';
+import 'content_start.dart' as globals;
 
 class Beranda extends StatefulWidget {
-  final String username;
-
-  const Beranda({super.key, required this.username});
+  const Beranda({super.key});
 
   @override
   State<Beranda> createState() => _BerandaState();
@@ -39,7 +39,7 @@ class _BerandaState extends State<Beranda> {
                       height: 50,
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: Text(
-                        "Hai ${widget.username}! \n\n",
+                        "Hai ${globals.username}! \n\n",
                         style: const TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.w700,
@@ -168,32 +168,32 @@ class _BerandaState extends State<Beranda> {
                       flex: 6,
                       child: Row(
                         children: <Widget>[
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return Calculator();
-                              }));
-                            },
-                            child: Flexible(
-                                flex: 6,
-                                child: Stack(
-                                  children: <Widget>[
-                                    Material(
-                                      elevation: 4,
-                                      borderRadius: BorderRadius.circular(15),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                            border: Border.all(
-                                                width: 5, color: Colors.grey),
-                                            color: Color(0xffffffff)),
-                                      ),
+                          Flexible(
+                              flex: 6,
+                              child: Stack(
+                                children: <Widget>[
+                                  Material(
+                                    elevation: 4,
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all(
+                                              width: 1, color: Colors.grey),
+                                          color: Color(0xffffffff)),
                                     ),
-                                    Center(
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return Calculator();
+                                      }));
+                                    },
+                                    child: Center(
                                       child: Column(
-                                        children: <Widget>[
+                                        children: const <Widget>[
                                           Flexible(
                                               flex: 7,
                                               child: Image(
@@ -211,10 +211,10 @@ class _BerandaState extends State<Beranda> {
                                               ))
                                         ],
                                       ),
-                                    )
-                                  ],
-                                )),
-                          ),
+                                    ),
+                                  )
+                                ],
+                              )),
                           Spacer(
                             flex: 2,
                           ),
@@ -234,25 +234,33 @@ class _BerandaState extends State<Beranda> {
                                           color: Color(0xffffffff)),
                                     ),
                                   ),
-                                  Center(
-                                    child: Column(
-                                      children: <Widget>[
-                                        Flexible(
-                                            flex: 7,
-                                            child: Image(
-                                                image: AssetImage(
-                                                    "images/home_run.png"))),
-                                        Flexible(
-                                            flex: 3,
-                                            child: Text(
-                                              "Running",
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color(0xff7F78D2),
-                                              ),
-                                            ))
-                                      ],
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return TrackingRunningApp();
+                                      }));
+                                    },
+                                    child: Center(
+                                      child: Column(
+                                        children: <Widget>[
+                                          Flexible(
+                                              flex: 7,
+                                              child: Image(
+                                                  image: AssetImage(
+                                                      "images/home_run.png"))),
+                                          Flexible(
+                                              flex: 3,
+                                              child: Text(
+                                                "Running",
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff7F78D2),
+                                                ),
+                                              ))
+                                        ],
+                                      ),
                                     ),
                                   )
                                 ],
@@ -307,13 +315,55 @@ class _BerandaState extends State<Beranda> {
                                 ],
                               )),
                           Spacer(
-                            flex: 1,
+                            flex: 2,
                           ),
                           Flexible(
-                              flex: 7,
-                              child: Container(
-                                color: Colors.blue,
-                              ))
+                              flex: 6,
+                              child: Stack(
+                                children: <Widget>[
+                                  Material(
+                                    elevation: 4,
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          border: Border.all(
+                                              width: 1, color: Colors.grey),
+                                          color: Color(0xffffffff)),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return Cuaca();
+                                      }));
+                                    },
+                                    child: Center(
+                                      child: Column(
+                                        children: <Widget>[
+                                          Flexible(
+                                              flex: 6,
+                                              child: Image(
+                                                  image: AssetImage(
+                                                      "images/cuaca.png"))),
+                                          Flexible(
+                                              flex: 3,
+                                              child: Text(
+                                                "Weather",
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff7F78D2),
+                                                ),
+                                              ))
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              )),
                         ],
                       ),
                     ),
@@ -323,7 +373,6 @@ class _BerandaState extends State<Beranda> {
             ],
           ),
         )),
-        bottomNavigationBar: BottomNavbar(),
       )),
     );
   }

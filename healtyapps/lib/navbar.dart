@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:healtyapps/home.dart';
 import 'package:healtyapps/slepp_record.dart';
+import 'package:healtyapps/calculator.dart';
+import 'package:healtyapps/running.dart';
 
 class BottomNavbar extends StatefulWidget {
   const BottomNavbar({super.key});
@@ -11,9 +13,11 @@ class BottomNavbar extends StatefulWidget {
 
 class _BottomNavbarState extends State<BottomNavbar> {
   int _selectedIndex = 0;
-  static List<Widget> _widgetOptions = <Widget>[
-    Beranda(username: "Beranda"),
+  static List<Widget> body = <Widget>[
+    Beranda(),
+    TrackingRunningApp(),
     SleepCalculator(),
+    Calculator(),
   ];
 
   void _onItemTapped(int index) {
@@ -24,11 +28,9 @@ class _BottomNavbarState extends State<BottomNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15)
-      ),
-      child: BottomNavigationBar(
+    return Scaffold(
+      body: body[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Image.asset(
@@ -37,7 +39,6 @@ class _BottomNavbarState extends State<BottomNavbar> {
               height: 40,
             ),
             label: 'Home',
-            
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
