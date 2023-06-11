@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healtyapps/calculator.dart';
+import 'package:healtyapps/profile.dart';
 import 'package:healtyapps/slepp_record.dart';
 import 'package:healtyapps/water_record.dart';
 import 'package:healtyapps/register.dart';
@@ -53,7 +54,12 @@ class _BerandaState extends State<Beranda> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Profile();
+                        }));
+                      },
                       child: Container(
                         height: 40,
                         width: 35,
