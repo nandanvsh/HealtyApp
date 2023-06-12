@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:healtyapps/calculator.dart';
 import 'package:healtyapps/profile.dart';
 import 'package:healtyapps/slepp_record.dart';
+// ignore: unused_import
 import 'package:healtyapps/water_record.dart';
-import 'package:healtyapps/register.dart';
-import 'package:healtyapps/navbar.dart';
 import 'package:healtyapps/running.dart';
 import 'package:healtyapps/cuaca.dart';
 import 'content_start.dart' as globals;
@@ -20,23 +19,23 @@ class _BerandaState extends State<Beranda> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xffABA6E8),
+      color: const Color(0xffABA6E8),
       child: SafeArea(
           child: Scaffold(
-        backgroundColor: Color(0xffffffffff),
-        body: Container(
-            child: SingleChildScrollView(
+        // ignore: use_full_hex_values_for_flutter_colors
+        backgroundColor: const Color(0xffffffffff),
+        body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 10, left: 25),
                 child: Row(
                   children: [
-                    Container(
+                    SizedBox(
                       height: 50,
                       width: MediaQuery.of(context).size.width * 0.8,
                       child: Text(
@@ -55,15 +54,15 @@ class _BerandaState extends State<Beranda> {
                     ),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Profile();
-                        }));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Profile()));
                       },
                       child: Container(
                         height: 40,
                         width: 35,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage("images/user.png"))),
                       ),
@@ -71,7 +70,7 @@ class _BerandaState extends State<Beranda> {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width * 0.9,
                 child: const Text(
                   "Create Your Goal For Your Feature",
@@ -88,17 +87,17 @@ class _BerandaState extends State<Beranda> {
               Container(
                 height: 150,
                 width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 child: Stack(
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       height: 120,
-                      padding: EdgeInsets.only(right: 30, left: 30),
+                      padding: const EdgeInsets.only(right: 30, left: 30),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage("images/home1.png"),
                             fit: BoxFit.fill),
                         // boxShadow: [
@@ -113,17 +112,17 @@ class _BerandaState extends State<Beranda> {
                     Container(
                       height: 180,
                       width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.only(right: 200, bottom: 10),
+                      margin: const EdgeInsets.only(right: 200, bottom: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                             image: AssetImage("images/lari1.png")),
                       ),
                     ),
                     Container(
                       height: 100,
                       width: double.maxFinite,
-                      margin: EdgeInsets.only(left: 170, top: 50),
+                      margin: const EdgeInsets.only(left: 170, top: 50),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -140,7 +139,7 @@ class _BerandaState extends State<Beranda> {
                                       color: Color.fromARGB(64, 0, 0, 0))
                                 ]),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           RichText(
@@ -167,7 +166,7 @@ class _BerandaState extends State<Beranda> {
 
               Container(
                 height: MediaQuery.of(context).size.height * 0.4,
-                margin: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 child: Column(
                   children: <Widget>[
                     Flexible(
@@ -187,19 +186,19 @@ class _BerandaState extends State<Beranda> {
                                               BorderRadius.circular(15),
                                           border: Border.all(
                                               width: 1, color: Colors.grey),
-                                          color: Color(0xffffffff)),
+                                          color: const Color(0xffffffff)),
                                     ),
                                   ),
                                   InkWell(
                                     onTap: () {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
-                                        return Calculator();
+                                        return const Calculator();
                                       }));
                                     },
-                                    child: Center(
+                                    child: const Center(
                                       child: Column(
-                                        children: const <Widget>[
+                                        children: <Widget>[
                                           Flexible(
                                               flex: 7,
                                               child: Image(
@@ -221,7 +220,7 @@ class _BerandaState extends State<Beranda> {
                                   )
                                 ],
                               )),
-                          Spacer(
+                          const Spacer(
                             flex: 2,
                           ),
                           Flexible(
@@ -237,17 +236,17 @@ class _BerandaState extends State<Beranda> {
                                               BorderRadius.circular(15),
                                           border: Border.all(
                                               width: 1, color: Colors.grey),
-                                          color: Color(0xffffffff)),
+                                          color: const Color(0xffffffff)),
                                     ),
                                   ),
                                   InkWell(
                                     onTap: () {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
-                                        return TrackingRunningApp();
+                                        return const TrackingRunningApp();
                                       }));
                                     },
-                                    child: Center(
+                                    child: const Center(
                                       child: Column(
                                         children: <Widget>[
                                           Flexible(
@@ -274,7 +273,7 @@ class _BerandaState extends State<Beranda> {
                         ],
                       ),
                     ),
-                    Spacer(
+                    const Spacer(
                       flex: 1,
                     ),
                     Flexible(
@@ -294,33 +293,41 @@ class _BerandaState extends State<Beranda> {
                                               BorderRadius.circular(15),
                                           border: Border.all(
                                               width: 1, color: Colors.grey),
-                                          color: Color(0xffffffff)),
+                                          color: const Color(0xffffffff)),
                                     ),
                                   ),
-                                  Center(
-                                    child: Column(
-                                      children: <Widget>[
-                                        Flexible(
-                                            flex: 7,
-                                            child: Image(
-                                                image: AssetImage(
-                                                    "images/home_sleep.png"))),
-                                        Flexible(
-                                            flex: 3,
-                                            child: Text(
-                                              "Sleep Treaker",
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color(0xff7F78D2),
-                                              ),
-                                            ))
-                                      ],
-                                    ),
-                                  )
+                                  InkWell(
+                                      onTap: () {
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          return const SleepCalculator();
+                                        }));
+                                      },
+                                      child: const Center(
+                                        child: Column(
+                                          children: <Widget>[
+                                            Flexible(
+                                                flex: 7,
+                                                child: Image(
+                                                    image: AssetImage(
+                                                        "images/home_sleep.png"))),
+                                            Flexible(
+                                                flex: 3,
+                                                child: Text(
+                                                  "Sleep Treaker",
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Color(0xff7F78D2),
+                                                  ),
+                                                ))
+                                          ],
+                                        ),
+                                      ))
                                 ],
                               )),
-                          Spacer(
+                          const Spacer(
                             flex: 2,
                           ),
                           Flexible(
@@ -336,17 +343,17 @@ class _BerandaState extends State<Beranda> {
                                               BorderRadius.circular(15),
                                           border: Border.all(
                                               width: 1, color: Colors.grey),
-                                          color: Color(0xffffffff)),
+                                          color: const Color(0xffffffff)),
                                     ),
                                   ),
                                   InkWell(
                                     onTap: () {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
-                                        return Cuaca();
+                                        return const Cuaca();
                                       }));
                                     },
-                                    child: Center(
+                                    child: const Center(
                                       child: Column(
                                         children: <Widget>[
                                           Flexible(
@@ -378,7 +385,7 @@ class _BerandaState extends State<Beranda> {
               )
             ],
           ),
-        )),
+        ),
       )),
     );
   }

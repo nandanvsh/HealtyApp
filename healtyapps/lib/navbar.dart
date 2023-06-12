@@ -14,10 +14,10 @@ class BottomNavbar extends StatefulWidget {
 class _BottomNavbarState extends State<BottomNavbar> {
   int _selectedIndex = 0;
   static List<Widget> body = <Widget>[
-    Beranda(),
-    TrackingRunningApp(),
-    SleepCalculator(),
-    Calculator(),
+    const Beranda(),
+    const TrackingRunningApp(),
+    const SleepCalculator(),
+    const Calculator(),
   ];
 
   void _onItemTapped(int index) {
@@ -66,6 +66,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
           ),
         ],
         currentIndex: _selectedIndex,
+        // ignore: prefer_const_constructors
         selectedItemColor: Color(0xff7F78D2),
         onTap: _onItemTapped,
       ),

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:healtyapps/navbar.dart';
-import 'package:healtyapps/page_one.dart';
 import 'package:healtyapps/start.dart';
 
 void main() {
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: "Poppins"),
-      home: Start(),
+      home: const Start(),
     );
   }
 }

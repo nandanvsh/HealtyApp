@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:calendar_appbar/calendar_appbar.dart';
 
 class WaterRecordScreen extends StatefulWidget {
+  const WaterRecordScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _WaterRecordScreenState createState() => _WaterRecordScreenState();
 }
 
@@ -21,7 +24,7 @@ class _WaterRecordScreenState extends State<WaterRecordScreen> {
     });
   }
 
-  Future<Null> _showTimePicker(BuildContext context) async {
+  Future<void> _showTimePicker(BuildContext context) async {
     final TimeOfDay? selectedTime = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
@@ -43,10 +46,11 @@ class _WaterRecordScreenState extends State<WaterRecordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CalendarAppBar(
-        accent: Color(0xff7F78D2),
+        accent: const Color(0xff7F78D2),
         backButton: false,
+        // ignore: avoid_print
         onDateChanged: (value) => print(value),
-        firstDate: DateTime.now().subtract(Duration(days: 140)),
+        firstDate: DateTime.now().subtract(const Duration(days: 140)),
         lastDate: DateTime.now(),
       ),
       body: Center(
@@ -55,26 +59,26 @@ class _WaterRecordScreenState extends State<WaterRecordScreen> {
           children: <Widget>[
             Text(
               'Total water intake: ${_totalWaterIntake ~/ 240} glasses',
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => _showTimePicker(context),
-              child: Text('Add 1 glass of water'),
+              child: const Text('Add 1 glass of water'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 _resetWaterIntake();
               },
-              child: Text('Reset'),
+              child: const Text('Reset'),
             ),
-            SizedBox(height: 20),
-            Container(
+            const SizedBox(height: 20),
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.7,
               child: Text(
                 _getWaterIntakeStatus(),
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 16, color: Color.fromARGB(255, 96, 96, 96)),
               ),
             ),

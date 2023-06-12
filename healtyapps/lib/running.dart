@@ -4,24 +4,29 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 class RunningTrackerApp extends StatelessWidget {
+  const RunningTrackerApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return TrackingRunningApp();
+    return const TrackingRunningApp();
   }
 }
 
 class TrackingRunningApp extends StatefulWidget {
+  const TrackingRunningApp({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _TrackingRunningAppState createState() => _TrackingRunningAppState();
 }
 
 class _TrackingRunningAppState extends State<TrackingRunningApp> {
-  Completer<GoogleMapController> _controller = Completer();
-  Location _location = Location();
+  final Completer<GoogleMapController> _controller = Completer();
+  final Location _location = Location();
   bool _isTracking = false;
-  LatLng _startLocation = LatLng(0, 0);
+  LatLng _startLocation = const LatLng(0, 0);
   LatLng? _endLocation;
-  Set<Polyline> _polylines = {};
+  final Set<Polyline> _polylines = {};
 
   @override
   void initState() {
@@ -43,7 +48,7 @@ class _TrackingRunningAppState extends State<TrackingRunningApp> {
         _endLocation = currentLatLng;
         _polylines.add(
           Polyline(
-            polylineId: PolylineId('runningPath'),
+            polylineId: const PolylineId('runningPath'),
             points: [_startLocation, _endLocation!],
             color: Colors.blue,
             width: 5,
@@ -75,13 +80,13 @@ class _TrackingRunningAppState extends State<TrackingRunningApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Running Tracker'),
+        title: const Text('Running Tracker'),
       ),
       body: Stack(
         children: [
           GoogleMap(
             mapType: MapType.normal,
-            initialCameraPosition: CameraPosition(
+            initialCameraPosition: const CameraPosition(
               target: LatLng(0, 0),
               zoom: 17.0,
             ),
@@ -103,7 +108,7 @@ class _TrackingRunningAppState extends State<TrackingRunningApp> {
                   onPressed: _isTracking ? _stopTracking : _startTracking,
                   child: Text(
                     _isTracking ? 'Stop' : 'Start',
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ),
               ],
