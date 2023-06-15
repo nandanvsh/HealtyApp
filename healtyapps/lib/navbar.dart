@@ -15,7 +15,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
   int _selectedIndex = 0;
   static List<Widget> body = <Widget>[
     Beranda(),
-    TrackingRunningApp(),
+    RunningTrackerApp(),
     SleepCalculator(),
     Calculator(),
   ];

@@ -7,6 +7,7 @@ import 'package:healtyapps/register.dart';
 import 'package:healtyapps/navbar.dart';
 import 'package:healtyapps/running.dart';
 import 'package:healtyapps/cuaca.dart';
+import 'package:healtyapps/weather.dart';
 import 'content_start.dart' as globals;
 
 class Beranda extends StatefulWidget {
@@ -78,7 +79,7 @@ class _BerandaState extends State<Beranda> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
-                    color: Color(0xff000000),
+                    color: Color.fromARGB(255, 94, 92, 92),
                   ),
                 ),
               ),
@@ -244,7 +245,7 @@ class _BerandaState extends State<Beranda> {
                                     onTap: () {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
-                                        return TrackingRunningApp();
+                                        return RunningTrackerApp();
                                       }));
                                     },
                                     child: Center(
@@ -297,25 +298,33 @@ class _BerandaState extends State<Beranda> {
                                           color: Color(0xffffffff)),
                                     ),
                                   ),
-                                  Center(
-                                    child: Column(
-                                      children: <Widget>[
-                                        Flexible(
-                                            flex: 7,
-                                            child: Image(
-                                                image: AssetImage(
-                                                    "images/home_sleep.png"))),
-                                        Flexible(
-                                            flex: 3,
-                                            child: Text(
-                                              "Sleep Treaker",
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Color(0xff7F78D2),
-                                              ),
-                                            ))
-                                      ],
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return SleepCalculator();
+                                      }));
+                                    },
+                                    child: Center(
+                                      child: Column(
+                                        children: <Widget>[
+                                          Flexible(
+                                              flex: 7,
+                                              child: Image(
+                                                  image: AssetImage(
+                                                      "images/home_sleep.png"))),
+                                          Flexible(
+                                              flex: 3,
+                                              child: Text(
+                                                "Sleep Treaker",
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff7F78D2),
+                                                ),
+                                              ))
+                                        ],
+                                      ),
                                     ),
                                   )
                                 ],
@@ -343,7 +352,7 @@ class _BerandaState extends State<Beranda> {
                                     onTap: () {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
-                                        return Cuaca();
+                                        return Weather();
                                       }));
                                     },
                                     child: Center(

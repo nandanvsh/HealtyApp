@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'navbar.dart';
 
-// void main() {
-//   runApp(Profile());
-// }
+class Profile extends StatefulWidget {
+  @override
+  State<Profile> createState() => _ProfileState();
+}
 
-class Profile extends StatelessWidget {
+class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+    return Container(
+        color: Color(0xffABA6E8),
+        child: SafeArea(
+            child: Scaffold(
           body: Container(
             color: Colors.white54,
             child: Column(
@@ -227,6 +229,6 @@ class Profile extends StatelessWidget {
             ),
           ),
           bottomNavigationBar: BottomNavbar(),
-        ));
+        )));
   }
 }

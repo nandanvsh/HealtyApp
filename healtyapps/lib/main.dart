@@ -2,10 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:healtyapps/navbar.dart';
 import 'package:healtyapps/page_one.dart';
 import 'package:healtyapps/start.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  initializeDateFormatting('id_ID', null)
+      .then((_) => runApp(ProviderScope(child: MyApp())));
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
