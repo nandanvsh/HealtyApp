@@ -42,7 +42,7 @@ class _StartState extends State<Start> {
                   return Column(
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 70),
+                        margin: const EdgeInsets.only(top: 70),
                         child: Image.asset(
                           contents[i].image,
                           height: 350,
@@ -63,7 +63,7 @@ class _StartState extends State<Start> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 10),
+                        margin: const EdgeInsets.only(top: 10),
                         child: Text(
                           contents[i].description,
                           style: const TextStyle(
@@ -76,39 +76,38 @@ class _StartState extends State<Start> {
                   );
                 }),
           ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                  contents.length, (index) => buildDot(index, context)),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+                contents.length, (index) => buildDot(index, context)),
           ),
           Container(
-            margin: EdgeInsets.only(bottom: 100, top: 50),
+            margin: const EdgeInsets.only(bottom: 100, top: 50),
             width: MediaQuery.of(context).size.width * 0.7,
             height: 50,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                color: Color(0xff7F78D2)),
+                color: const Color(0xff7F78D2)),
             child: Material(
               borderRadius: BorderRadius.circular(25),
               color: Colors.transparent,
               child: InkWell(
                 onTap: () {
                   if (currentIndex == contents.length - 1) {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => PageOne()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => const PageOne()));
                   }
                   _controller.nextPage(
-                      duration: Duration(microseconds: 100),
+                      duration: const Duration(microseconds: 100),
                       curve: Curves.bounceIn);
                 },
                 child: Center(
                   child: Text(
                     currentIndex == contents.length - 1 ? "Continue" : "Next",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 19,
                       fontWeight: FontWeight.w700,
+                      // ignore: use_full_hex_values_for_flutter_colors
                       color: Color(0xfffffffff),
                     ),
                   ),
@@ -125,9 +124,10 @@ class _StartState extends State<Start> {
     return Container(
       height: 10,
       width: currentIndex == index ? 30 : 10,
-      margin: EdgeInsets.only(right: 5),
+      margin: const EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: Color(0xff7F78D2)),
+          borderRadius: BorderRadius.circular(20),
+          color: const Color(0xff7F78D2)),
     );
   }
 }

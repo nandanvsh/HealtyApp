@@ -18,6 +18,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
     RunningTrackerApp(),
     SleepCalculator(),
     Calculator(),
+
   ];
 
   void _onItemTapped(int index) {
@@ -66,6 +67,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
           ),
         ],
         currentIndex: _selectedIndex,
+        // ignore: prefer_const_constructors
         selectedItemColor: Color(0xff7F78D2),
         onTap: _onItemTapped,
       ),

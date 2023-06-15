@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:healtyapps/home.dart';
 import 'package:healtyapps/navbar.dart';
 import 'package:healtyapps/register.dart';
 
@@ -22,137 +21,136 @@ class _LoginState extends State<Login> {
   String email = "";
   String password = "";
 
+  // ignore: non_constant_identifier_names
   TextEditingController Email = TextEditingController();
+  // ignore: non_constant_identifier_names
   TextEditingController Password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xffABA6E8),
+      color: const Color(0xffABA6E8),
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: Color(0xff7F78D2),
-          body: Container(
-            child: SingleChildScrollView(
-              child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(
-                      height: 60,
-                    ),
-                    Container(
-                        child: Image(image: AssetImage("images/login.png"))),
-                    Container(
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(
-                            height: 30,
-                          ),
-                          const Text(
-                            "Create An Account",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                              color: Color(0xfffffffff),
-                            ),
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: 15, bottom: 10),
-                            width: MediaQuery.of(context).size.width * 0.75,
-                            child: Column(
-                              children: <Widget>[
-                                fieldMasuk("Email", Email),
-                                fieldMasuk("Password", Password),
-                              ],
-                            ),
-                          ),
-                        ],
+          backgroundColor: const Color(0xff7F78D2),
+          body: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  const SizedBox(
+                    height: 60,
+                  ),
+                  const Image(image: AssetImage("images/login.png")),
+                  Column(
+                    children: <Widget>[
+                      const SizedBox(
+                        height: 30,
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(bottom: 35),
-                      width: MediaQuery.of(context).size.width * 0.75,
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.only(bottom: 20),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                const Text(
-                                  "Don't have an account? ",
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                  ),
+                      const Text(
+                        "Create An Account",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                          // ignore: use_full_hex_values_for_flutter_colors
+                          color: Color(0xfffffffff),
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 15, bottom: 10),
+                        width: MediaQuery.of(context).size.width * 0.75,
+                        child: Column(
+                          children: <Widget>[
+                            fieldMasuk("Email", Email),
+                            fieldMasuk("Password", Password),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 35),
+                    width: MediaQuery.of(context).size.width * 0.75,
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              const Text(
+                                "Don't have an account? ",
+                                style: TextStyle(
+                                  fontSize: 15,
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.push(context,
-                                        MaterialPageRoute(builder: (context) {
-                                      return Register();
-                                    }));
-                                  },
-                                  child: const Text(
-                                    "Sign Up",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Color(0xfffffffff)),
-                                  ),
-                                )
-                              ],
-                            ),
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return const Register();
+                                  }));
+                                },
+                                child: const Text(
+                                  "Sign Up",
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      // ignore: use_full_hex_values_for_flutter_colors
+                                      color: Color(0xfffffffff)),
+                                ),
+                              )
+                            ],
                           ),
-                          Material(
-                            borderRadius: BorderRadius.circular(25),
-                            color: Color.fromARGB(255, 234, 230, 230),
-                            child: Container(
-                              margin: EdgeInsets.only(bottom: 20, top: 10),
-                              width: MediaQuery.of(context).size.width * 0.7,
-                              height: 25,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25)),
-                              child: Material(
-                                borderRadius: BorderRadius.circular(25),
-                                color: Colors.transparent,
-                                child: InkWell(
-                                  onTap: () {
-                                    password = Password.text;
-                                    email = Email.text;
+                        ),
+                        Material(
+                          borderRadius: BorderRadius.circular(25),
+                          color: const Color.fromARGB(255, 234, 230, 230),
+                          child: Container(
+                            margin: const EdgeInsets.only(bottom: 20, top: 10),
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            height: 25,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25)),
+                            child: Material(
+                              borderRadius: BorderRadius.circular(25),
+                              color: Colors.transparent,
+                              child: InkWell(
+                                onTap: () {
+                                  password = Password.text;
+                                  email = Email.text;
 
-                                    if (email == "" || password == "") {
-                                      alertDialog(context, "Login Gagal",
-                                          "Email atau Password tidak boleh kosong");
-                                    } else if (email != widget.emailUser ||
-                                        password != widget.passwordUser) {
-                                      alertDialog(context, "Login Gagal",
-                                          "Email atau Password Salah");
-                                    } else {
-                                      Navigator.pushReplacement(context,
-                                          MaterialPageRoute(builder: (context) {
-                                        return BottomNavbar();
-                                      }));
-                                    }
-                                  },
-                                  child: const Center(
-                                    child: Text(
-                                      "Sign In",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        fontWeight: FontWeight.w700,
-                                        color: Color(0xff7F78D2),
-                                      ),
+                                  if (email == "" || password == "") {
+                                    alertDialog(context, "Login Gagal",
+                                        "Email atau Password tidak boleh kosong");
+                                  } else if (email != widget.emailUser ||
+                                      password != widget.passwordUser) {
+                                    alertDialog(context, "Login Gagal",
+                                        "Email atau Password Salah");
+                                  } else {
+                                    Navigator.pushReplacement(context,
+                                        MaterialPageRoute(builder: (context) {
+                                      return const BottomNavbar();
+                                    }));
+                                  }
+                                },
+                                child: const Center(
+                                  child: Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w700,
+                                      color: Color(0xff7F78D2),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
               ),
             ),
           ),
@@ -183,14 +181,15 @@ class _LoginState extends State<Login> {
 
   Container fieldMasuk(String label, TextEditingController controller) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
             labelText: label,
-            labelStyle: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+            labelStyle:
+                const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
             border: OutlineInputBorder(
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(23),

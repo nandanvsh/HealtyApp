@@ -164,74 +164,78 @@ class _RunningTrackerAppState extends State<RunningTrackerApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Tracking Screen'),
+    return Container(
+      color: const Color(0xffABA6E8),
+      child: SafeArea(
+        child: Scaffold(
+          body: _lastPosition != null
+              ? Stack(
+                  children: [
+                    GoogleMap(
+                      initialCameraPosition: CameraPosition(
+                        target: LatLng(
+                          _lastPosition!.latitude,
+                          _lastPosition!.longitude,
+                        ),
+                        zoom: 15.0,
+                      ),
+                      onMapCreated: (controller) {
+                        _mapController = controller;
+                      },
+                      myLocationEnabled: true,
+                      polylines: {
+                        Polyline(
+                          polylineId: PolylineId('route'),
+                          color: Colors.blue,
+                          width: 5,
+                          points: _routePoints,
+                        ),
+                      },
+                    ),
+                    Positioned(
+                      top: 16,
+                      right: 16,
+                      child: FloatingActionButton(
+                        onPressed: _updateCameraPosition,
+                        child: Icon(Icons.my_location),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 16,
+                      left: 16,
+                      right: 16,
+                      child: Column(
+                        children: [
+                          ElevatedButton(
+                            onPressed:
+                                _isTracking ? _stopTracking : _startTracking,
+                            child: Text(_isTracking
+                                ? 'Stop Tracking'
+                                : 'Start Tracking'),
+                          ),
+                          SizedBox(height: 16),
+                          Text(
+                            'Distance: ${_formatDistance(_distance)}',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: const Color.fromARGB(255, 0, 0, 0)),
+                          ),
+                          Text(
+                            'Time: ${_formatTime(_elapsedSeconds)}',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: const Color.fromARGB(255, 0, 0, 0)),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              : Center(
+                  child: CircularProgressIndicator(),
+                ),
+        ),
       ),
-      body: _lastPosition != null
-          ? Stack(
-              children: [
-                GoogleMap(
-                  initialCameraPosition: CameraPosition(
-                    target: LatLng(
-                      _lastPosition!.latitude,
-                      _lastPosition!.longitude,
-                    ),
-                    zoom: 15.0,
-                  ),
-                  onMapCreated: (controller) {
-                    _mapController = controller;
-                  },
-                  myLocationEnabled: true,
-                  polylines: {
-                    Polyline(
-                      polylineId: PolylineId('route'),
-                      color: Colors.blue,
-                      width: 5,
-                      points: _routePoints,
-                    ),
-                  },
-                ),
-                Positioned(
-                  top: 16,
-                  right: 16,
-                  child: FloatingActionButton(
-                    onPressed: _updateCameraPosition,
-                    child: Icon(Icons.my_location),
-                  ),
-                ),
-                Positioned(
-                  bottom: 16,
-                  left: 16,
-                  right: 16,
-                  child: Column(
-                    children: [
-                      ElevatedButton(
-                        onPressed: _isTracking ? _stopTracking : _startTracking,
-                        child: Text(
-                            _isTracking ? 'Stop Tracking' : 'Start Tracking'),
-                      ),
-                      SizedBox(height: 16),
-                      Text(
-                        'Distance: ${_formatDistance(_distance)}',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: const Color.fromARGB(255, 0, 0, 0)),
-                      ),
-                      Text(
-                        'Time: ${_formatTime(_elapsedSeconds)}',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: const Color.fromARGB(255, 0, 0, 0)),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            )
-          : Center(
-              child: CircularProgressIndicator(),
-            ),
     );
   }
 }

@@ -10,20 +10,20 @@ class PageOne extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          color: Color(0xffffffff),
+          color: const Color(0xffffffff),
           width: MediaQuery.of(context).size.width,
           child: Container(
-            margin: EdgeInsets.only(top: 70),
+            margin: const EdgeInsets.only(top: 70),
             child: Column(
               children: <Widget>[
                 Container(
-                    margin: EdgeInsets.only(top: 10),
-                    child: Image(
+                    margin: const EdgeInsets.only(top: 10),
+                    child: const Image(
                       image: AssetImage("images/foto1.png"),
                       height: 300,
                     )),
                 Container(
-                  margin: EdgeInsets.only(top: 23),
+                  margin: const EdgeInsets.only(top: 23),
                   child: const Text(
                     "Healty Lovely",
                     style: TextStyle(
@@ -39,7 +39,7 @@ class PageOne extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 30),
+                  margin: const EdgeInsets.only(top: 30),
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: const Text(
                     "'Ciptakan kebiasaan sehat untuk hidup yang lebih baik, karena kesehatan adalah investasi terbaik'",
@@ -52,12 +52,12 @@ class PageOne extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 20, top: 50),
+                  margin: const EdgeInsets.only(bottom: 20, top: 50),
                   width: MediaQuery.of(context).size.width * 0.7,
                   height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color.fromARGB(255, 213, 212, 233)),
+                      color: const Color.fromARGB(255, 213, 212, 233)),
                   child: Material(
                     borderRadius: BorderRadius.circular(25),
                     color: Colors.transparent,
@@ -65,7 +65,7 @@ class PageOne extends StatelessWidget {
                       onTap: () {
                         Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) {
-                          return Login(
+                          return const Login(
                               username: "username",
                               emailUser: "emailUser",
                               passwordUser: "passwordUser");
@@ -85,12 +85,12 @@ class PageOne extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 20, top: 5),
+                  margin: const EdgeInsets.only(bottom: 20, top: 5),
                   width: MediaQuery.of(context).size.width * 0.7,
                   height: 50,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
-                      color: Color(0xff7F78D2)),
+                      color: const Color(0xff7F78D2)),
                   child: Material(
                     borderRadius: BorderRadius.circular(25),
                     color: Colors.transparent,
@@ -98,7 +98,7 @@ class PageOne extends StatelessWidget {
                       onTap: () {
                         Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) {
-                          return Register();
+                          return const Register();
                         }));
                       },
                       child: const Center(
@@ -107,6 +107,7 @@ class PageOne extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 19,
                             fontWeight: FontWeight.w700,
+                            // ignore: use_full_hex_values_for_flutter_colors
                             color: Color(0xfffffffff),
                           ),
                         ),
