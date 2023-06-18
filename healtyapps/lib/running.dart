@@ -186,7 +186,7 @@ class _RunningTrackerAppState extends State<RunningTrackerApp> {
                       polylines: {
                         Polyline(
                           polylineId: PolylineId('route'),
-                          color: Colors.blue,
+                          color: Color(0xffABA6E8),
                           width: 5,
                           points: _routePoints,
                         ),
