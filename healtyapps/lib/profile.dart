@@ -1,10 +1,5 @@
-// import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-// ignore: avoid_web_libraries_in_flutter
-// import 'dart:html';
-// import 'dart:async';
-// import 'navbar.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -20,7 +15,6 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        // color: Colors.white54,
         child: Column(
           children: <Widget>[
             const SizedBox(
@@ -28,8 +22,6 @@ class _ProfileState extends State<Profile> {
             ),
             ListTile(
               leading: Icon(Icons.arrow_back),
-              // title: Text('back'),
-              // subtitle: Text('Requirements: N'),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -84,12 +76,8 @@ class _ProfileState extends State<Profile> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
                   child: const ListTile(
-                    // leading: Icon(
-                    //   Icons.history,
-                    //   color: Colors.black54,
-                    // ),
                     title: Text(
-                      'Nama',
+                      'Nama Lengkap',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
@@ -109,8 +97,6 @@ class _ProfileState extends State<Profile> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
                   child: const ListTile(
-                    // leading:
-                    //     Icon(Icons.help_outline, color: Colors.black54),
                     title: Text(
                       'Email',
                       style:
@@ -132,12 +118,8 @@ class _ProfileState extends State<Profile> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
                   child: const ListTile(
-                    // leading: Icon(
-                    //   Icons.privacy_tip_sharp,
-                    //   color: Colors.black54,
-                    // ),
                     title: Text(
-                      'Alamat',
+                      'Address',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
@@ -154,12 +136,29 @@ class _ProfileState extends State<Profile> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
                   child: const ListTile(
-                    // leading: Icon(
-                    //   Icons.add_reaction_sharp,
-                    //   color: Colors.black54,
-                    // ),
                     title: Text(
                       'No Telp',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios_outlined,
+                      color: Colors.black54,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Card(
+                  color: Colors.white70,
+                  margin:
+                      const EdgeInsets.only(left: 35, right: 35, bottom: 10),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  child: const ListTile(
+                    title: Text(
+                      'Password',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
@@ -202,7 +201,6 @@ class _ProfileState extends State<Profile> {
 
   Widget bottomSheet() {
     // ignore: non_constant_identifier_names, prefer_typing_uninitialized_variables
-    // var FlatButton;
     return Container(
       height: 100.0,
       width: MediaQuery.of(context).size.width,
@@ -212,7 +210,7 @@ class _ProfileState extends State<Profile> {
       ),
       child: Column(children: <Widget>[
         const Text(
-          "Pilih Profile Foto",
+          "Pilih Foto Profile",
           style: TextStyle(
             fontSize: 20.0,
           ),
