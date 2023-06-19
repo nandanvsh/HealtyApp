@@ -25,6 +25,14 @@ class _LoginState extends State<Login> {
   TextEditingController Email = TextEditingController();
   // ignore: non_constant_identifier_names
   TextEditingController Password = TextEditingController();
+  var pass = TextEditingController();
+  bool passwordHide = false;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordHide = true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +70,29 @@ class _LoginState extends State<Login> {
                         child: Column(
                           children: <Widget>[
                             fieldMasuk("Email", Email),
-                            fieldMasuk("Password", Password),
+                            TextField(
+                              controller: pass,
+                              obscureText: passwordHide,
+                              decoration: InputDecoration(
+                                  labelText: 'Password',
+                                  labelStyle: const TextStyle(
+                                      color:
+                                          Color.fromARGB(255, 255, 255, 255)),
+                                  border: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(23),
+                                  ),
+                                  suffixIcon: IconButton(
+                                    icon: Icon(Icons.remove_red_eye),
+                                    onPressed: () {
+                                      setState(() {
+                                        passwordHide = !passwordHide;
+                                      });
+                                    },
+                                  )),
+                            ),
                           ],
                         ),
                       ),
@@ -118,8 +148,7 @@ class _LoginState extends State<Login> {
                                 onTap: () {
                                   password = Password.text;
                                   email = Email.text;
-
-                                  if (email == "" || password == "") {
+                                  if (email == "") {
                                     alertDialog(context, "Login Gagal",
                                         "Email atau Password tidak boleh kosong");
                                   } else if (email != widget.emailUser ||

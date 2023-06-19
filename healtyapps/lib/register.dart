@@ -20,6 +20,15 @@ class _RegisterState extends State<Register> {
   TextEditingController Username = TextEditingController();
   // ignore: non_constant_identifier_names
   TextEditingController Password = TextEditingController();
+  var pass = TextEditingController();
+  bool passwordHide = false;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordHide = true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -57,7 +66,29 @@ class _RegisterState extends State<Register> {
                           children: <Widget>[
                             fieldDaftar("Email", Email),
                             fieldDaftar("Username ", Username),
-                            fieldDaftar("Password", Password)
+                            TextField(
+                              controller: pass,
+                              obscureText: passwordHide,
+                              decoration: InputDecoration(
+                                  labelText: 'Password',
+                                  labelStyle: const TextStyle(
+                                      color:
+                                          Color.fromARGB(255, 255, 255, 255)),
+                                  border: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      width: 1,
+                                    ),
+                                    borderRadius: BorderRadius.circular(23),
+                                  ),
+                                  suffixIcon: IconButton(
+                                    icon: Icon(Icons.remove_red_eye),
+                                    onPressed: () {
+                                      setState(() {
+                                        passwordHide = !passwordHide;
+                                      });
+                                    },
+                                  )),
+                            ),
                           ],
                         ),
                       ),
@@ -121,9 +152,7 @@ class _RegisterState extends State<Register> {
 
                                   globals.username = username;
 
-                                  if (username == "" ||
-                                      password == "" ||
-                                      email == "") {
+                                  if (username == "" || email == "") {
                                     // kondisi jika username, password, dan email kosong
                                     alertDialog(context, "Registrasi Gagal",
                                         "Username, Email, dan Password tidak boleh kosong");

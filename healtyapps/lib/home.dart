@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:healtyapps/calculator.dart';
 import 'package:healtyapps/profile.dart';
 import 'package:healtyapps/slepp_record.dart';
-// ignore: unused_import
-import 'package:healtyapps/water_record.dart';
 import 'package:healtyapps/running.dart';
 import 'package:healtyapps/cuaca.dart';
+import 'package:healtyapps/weather.dart';
 import 'content_start.dart' as globals;
 
 class Beranda extends StatefulWidget {
@@ -29,7 +28,7 @@ class _BerandaState extends State<Beranda> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               const SizedBox(
-                height: 50,
+                height: 40,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 10, left: 25),
@@ -77,7 +76,7 @@ class _BerandaState extends State<Beranda> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
-                    color: Color(0xff000000),
+                    color: Color.fromARGB(255, 94, 92, 92),
                   ),
                 ),
               ),
@@ -243,7 +242,7 @@ class _BerandaState extends State<Beranda> {
                                     onTap: () {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
-                                        return const TrackingRunningApp();
+                                        return RunningTrackerApp();
                                       }));
                                     },
                                     child: const Center(
@@ -297,34 +296,34 @@ class _BerandaState extends State<Beranda> {
                                     ),
                                   ),
                                   InkWell(
-                                      onTap: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(
-                                                builder: (context) {
-                                          return const SleepCalculator();
-                                        }));
-                                      },
-                                      child: const Center(
-                                        child: Column(
-                                          children: <Widget>[
-                                            Flexible(
-                                                flex: 7,
-                                                child: Image(
-                                                    image: AssetImage(
-                                                        "images/home_sleep.png"))),
-                                            Flexible(
-                                                flex: 3,
-                                                child: Text(
-                                                  "Sleep Treaker",
-                                                  style: TextStyle(
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color(0xff7F78D2),
-                                                  ),
-                                                ))
-                                          ],
-                                        ),
-                                      ))
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          MaterialPageRoute(builder: (context) {
+                                        return SleepCalculator();
+                                      }));
+                                    },
+                                    child: Center(
+                                      child: Column(
+                                        children: <Widget>[
+                                          Flexible(
+                                              flex: 7,
+                                              child: Image(
+                                                  image: AssetImage(
+                                                      "images/home_sleep.png"))),
+                                          Flexible(
+                                              flex: 3,
+                                              child: Text(
+                                                "Sleep Treaker",
+                                                style: TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xff7F78D2),
+                                                ),
+                                              ))
+                                        ],
+                                      ),
+                                    ),
+                                  )
                                 ],
                               )),
                           const Spacer(
@@ -350,7 +349,7 @@ class _BerandaState extends State<Beranda> {
                                     onTap: () {
                                       Navigator.push(context,
                                           MaterialPageRoute(builder: (context) {
-                                        return const Cuaca();
+                                        return Weather();
                                       }));
                                     },
                                     child: const Center(

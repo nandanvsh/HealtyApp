@@ -14,10 +14,11 @@ class BottomNavbar extends StatefulWidget {
 class _BottomNavbarState extends State<BottomNavbar> {
   int _selectedIndex = 0;
   static List<Widget> body = <Widget>[
-    const Beranda(),
-    const TrackingRunningApp(),
-    const SleepCalculator(),
-    const Calculator(),
+    Beranda(),
+    RunningTrackerApp(),
+    SleepCalculator(),
+    Calculator(),
+
   ];
 
   void _onItemTapped(int index) {
