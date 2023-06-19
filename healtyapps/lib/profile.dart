@@ -18,23 +18,21 @@ class _ProfileState extends State<Profile> {
   final ImagePicker _picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp(
-    // debugShowCheckedModeBanner: false,
     return Scaffold(
       body: Center(
         // color: Colors.white54,
         child: Column(
           children: <Widget>[
-            // imageProfile(),
-            // const SizedBox(
-            //   height: 20.0,
-            // ),
             const SizedBox(
               height: 15,
             ),
-            const ListTile(
+            ListTile(
               leading: Icon(Icons.arrow_back),
-              // trailing: Icon(Icons.menu),
+              // title: Text('back'),
+              // subtitle: Text('Requirements: N'),
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -49,29 +47,6 @@ class _ProfileState extends State<Profile> {
             const SizedBox(
               height: 20.0,
             ),
-            // const Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     CircleAvatar(
-            //       maxRadius: 65,
-            //       backgroundImage: AssetImage("images/Profile.jpg"),
-            //     ),
-            //     Positioned(
-            //         bottom: 20.0,
-            //         right: 20.0,
-            //         child: InkWell(
-            //             onTap: () {
-            //               showModalBottomSheet(
-            //                 context: context,
-            //                 builder: builder);
-            //             },
-            //             child: Icon(
-            //               Icons.camera_alt,
-            //               color: Colors.teal,
-            //               size: 20.0,
-            //             )))
-            //   ],
-            // ),
             const SizedBox(
               height: 15,
             ),
