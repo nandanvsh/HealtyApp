@@ -19,7 +19,9 @@ class _CalculatorState extends State<Calculator> {
     ///Indeks Massa Tubuh (atau BMI) dihitung sebagai berat badan Anda (dalam kilogram)
     ///dibagi dengan kuadrat tinggi badan Anda (dalam meter) atau BMI = Kg/M2.
     if (_height > 0 && _weight > 0) {
-      _bmi = _weight / ((_height / 100) * (_height / 100));
+      _height = _height / 100;
+      _bmi = _weight / (_height * _height);
+      print(_bmi);
       if (_bmi >= 18.5 && _bmi <= 25) {
         _status = 'Normal';
       } else if (_bmi > 25 && _bmi <= 40) {
@@ -32,12 +34,18 @@ class _CalculatorState extends State<Calculator> {
     }
   }
 
+  final TextEditingController nameControl = TextEditingController();
+  final TextEditingController weightControl = TextEditingController();
+  final TextEditingController heightControl = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
       color: const Color(0xffABA6E8),
       child: SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Color(0xff7F78D2),
+          ),
           // ignore: use_full_hex_values_for_flutter_colors
           backgroundColor: const Color(0xfffffffff),
           body: SingleChildScrollView(
@@ -51,38 +59,26 @@ class _CalculatorState extends State<Calculator> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
                         TextField(
+                          controller: nameControl,
                           decoration: const InputDecoration(
                             labelText: 'Nama',
                           ),
-                          onChanged: (value) {
-                            setState(() {
-                              _name = value;
-                            });
-                          },
                         ),
                         const SizedBox(height: 8.0),
                         TextField(
+                          controller: weightControl,
                           decoration: const InputDecoration(
                             labelText: 'Berat Badan (kg)',
                           ),
                           keyboardType: TextInputType.number,
-                          onChanged: (value) {
-                            setState(() {
-                              _weight = double.tryParse(value) ?? 0.0;
-                            });
-                          },
                         ),
                         const SizedBox(height: 8.0),
-                        TextField(
+                        TextFormField(
+                          controller: heightControl,
                           decoration: const InputDecoration(
                             labelText: 'Tinggi Badan (cm)',
                           ),
                           keyboardType: TextInputType.number,
-                          onChanged: (value) {
-                            setState(() {
-                              _height = double.tryParse(value) ?? 0.0;
-                            });
-                          },
                         ),
                         const SizedBox(height: 16.0),
                         Container(
@@ -98,7 +94,26 @@ class _CalculatorState extends State<Calculator> {
                             child: InkWell(
                               onTap: () {
                                 setState(() {
-                                  _calculateBMI();
+                                  if (double.parse(weightControl.text) != 0.0 &&
+                                      double.parse(heightControl.text) != 0.0) {
+                                    _weight = double.parse(weightControl.text);
+                                    _height = double.parse(heightControl.text);
+                                    _name = nameControl.text;
+                                    _calculateBMI();
+                                  } else {
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: const Text(
+                                          "weight or height must be fill"),
+                                      duration: const Duration(seconds: 5),
+                                      action: SnackBarAction(
+                                          label: "Dismiss",
+                                          onPressed: () {
+                                            ScaffoldMessenger.of(context)
+                                                .hideCurrentSnackBar();
+                                          }),
+                                    ));
+                                  }
                                 });
                               },
                               child: const Center(
@@ -126,8 +141,9 @@ class _CalculatorState extends State<Calculator> {
                         const SizedBox(height: 8.0),
                         Text('Status Berat Badan: $_status'),
                         const SizedBox(height: 8.0),
-                        Text(
-                            'Berat Badan Ideal: ${((_height - 100) * 0.9).toStringAsFixed(2)} kg'),
+                        Text(_height != 0.0
+                            ? 'Berat Badan Ideal: ${((_height - 100) * 0.9).toStringAsFixed(2)} kg'
+                            : "Berat Badan Ideal: "),
                       ],
                     ),
                   ),

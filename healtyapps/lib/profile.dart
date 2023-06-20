@@ -195,7 +195,6 @@ class _ProfileState extends State<Profile> {
           ],
         ),
       ),
-      // bottomNavigationBar: const BottomNavbar(),
     );
   }
 
