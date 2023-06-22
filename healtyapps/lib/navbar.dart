@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healtyapps/about.dart';
 import 'package:healtyapps/home.dart';
 import 'package:healtyapps/slepp_record.dart';
 import 'package:healtyapps/calculator.dart';
@@ -18,7 +19,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
     RunningTrackerApp(),
     SleepCalculator(),
     Calculator(),
-
+    AboutApp()
   ];
 
   void _onItemTapped(int index) {
@@ -34,41 +35,70 @@ class _BottomNavbarState extends State<BottomNavbar> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Image.asset(
-              "images/navbar_home.png",
-              width: 40,
-              height: 40,
+            icon: Icon(
+              Icons.home,
+              size: 40,
             ),
+            // icon: Image.asset(
+            //   "images/navbar_home.png",
+            //   width: 40,
+            //   height: 40,
+            // ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              "images/navbar_run.png",
-              width: 40,
-              height: 40,
+            icon: Icon(
+              Icons.run_circle,
+              size: 40,
             ),
+            // icon: Image.asset(
+            //   "images/navbar_run.png",
+            //   width: 40,
+            //   height: 40,
+            // ),
             label: 'Run',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              "images/navbar_sleep.png",
-              width: 40,
-              height: 40,
+            icon: Icon(
+              Icons.airline_seat_flat_rounded,
+              size: 50,
             ),
+            // icon: Image.asset(
+            //   "images/navbar_sleep.png",
+            //   width: 40,
+            //   height: 40,
+            // ),
             label: 'Sleep Record',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              "images/navbar_bmi.png",
-              width: 40,
-              height: 40,
+            icon: Icon(
+              Icons.calculate_rounded,
+              size: 40,
             ),
+            // icon: Image.asset(
+            //   "images/navbar_bmi.png",
+            //   width: 40,
+            //   height: 40,
+            // ),
             label: 'BMI Checker',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.info_rounded,
+              size: 40,
+            ),
+            // icon: Image.asset(
+            //   "images/i.jpg",
+            //   width: 40,
+            //   height: 40,
+            // ),
+            label: 'About',
           ),
         ],
         currentIndex: _selectedIndex,
         // ignore: prefer_const_constructors
         selectedItemColor: Color(0xff7F78D2),
+        unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
       ),
     );
