@@ -67,7 +67,7 @@ class _RegisterState extends State<Register> {
                             fieldDaftar("Email", Email),
                             fieldDaftar("Username ", Username),
                             TextField(
-                              controller: pass,
+                              controller: pass, 
                               obscureText: passwordHide,
                               decoration: InputDecoration(
                                   labelText: 'Password',
